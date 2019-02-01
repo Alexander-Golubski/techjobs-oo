@@ -1,9 +1,7 @@
 package org.launchcode.models.forms;
 
-import org.launchcode.models.CoreCompetency;
-import org.launchcode.models.Employer;
-import org.launchcode.models.Location;
-import org.launchcode.models.PositionType;
+import javafx.geometry.Pos;
+import org.launchcode.models.*;
 import org.launchcode.models.data.JobData;
 
 import javax.validation.constraints.NotNull;
@@ -21,6 +19,16 @@ public class JobForm {
 
     @NotNull
     private int employerId;
+
+//    @NotNull
+//    @Size(min=1, message = "Employer may not be empty")
+//    private String employer;
+
+    private int locationId;
+
+    private int positionTypeId;
+
+    private int coreCompetencyId;
 
     /*
         TODO #3 - Included other fields needed to create a job,
@@ -42,6 +50,9 @@ public class JobForm {
         */
 
         employers = jobData.getEmployers().findAll();
+        locations = jobData.getLocations().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
 
     }
 
@@ -60,6 +71,24 @@ public class JobForm {
     public void setEmployerId(int employerId) {
         this.employerId = employerId;
     }
+
+//    public String getEmployer() { return employer; }
+//
+//    public void setEmployer(String employer) { this.employer = employer; }
+
+    public int getLocationId() { return locationId; }
+
+    public void setLocationId(int locationId) { this.locationId = locationId; }
+
+    public int getPositionTypeId() { return positionTypeId; }
+
+    public void setPositionTypeId(int positionTypeId) {this.positionTypeId = positionTypeId; }
+
+    public int getCoreCompetencyId() { return coreCompetencyId; }
+
+    public void setCoreCompetencyId(int coreCompetencyId) {this.coreCompetencyId = coreCompetencyId; }
+
+    // ArrayLists
 
     public ArrayList<Employer> getEmployers() {
         return employers;
